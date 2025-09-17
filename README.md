@@ -1,223 +1,533 @@
-# Portal Listado Productos - Full Stack
 
-Un portal completo para listar y gestionar productos construido con React (frontend) y Node.js/Express (backend) con base de datos MySQL.
+# Portal de Listado de Productos
 
-## 🏗️ Arquitectura del Proyecto
+ 
+Un sistema full-stack para la gestión de productos con autenticación basada en roles, desarrollado con React, Node.js, Express y MySQL.
 
-```
-PortalListadoProductos/
-├── client/                 # Frontend React con Vite
-│   ├── src/
-│   │   ├── components/     # Componentes reutilizables
-│   │   ├── pages/         # Páginas de la aplicación
-│   │   ├── hooks/         # Custom hooks
-│   │   ├── utils/         # Funciones utilitarias
-│   │   └── assets/        # Recursos estáticos
-│   └── package.json
-├── server/                 # Backend Node.js/Express
-│   ├── src/
-│   │   ├── controllers/   # Controladores de la API
-│   │   ├── models/        # Modelos de datos
-│   │   ├── routes/        # Rutas de la API
-│   │   ├── middleware/    # Middlewares personalizados
-│   │   ├── config/        # Configuración (DB, etc.)
-│   │   └── utils/         # Utilidades del servidor
-│   └── package.json
-├── database/              # Scripts de base de datos
-│   └── schema.sql         # Esquema de la base de datos
-└── docs/                  # Documentación adicional
-```
 
-## 🚀 Tecnologías Utilizadas
+##  Tabla de Contenidos
 
-### Frontend
-- **React 18.2.0** - Biblioteca de interfaz de usuario
-- **Vite 5.2.0** - Herramienta de construcción rápida
-- **CSS3** - Estilos modernos y responsivos
+  
 
-### Backend
-- **Node.js** - Runtime de JavaScript
-- **Express.js** - Framework web
-- **MySQL** - Base de datos relacional
-- **JWT** - Autenticación
-- **bcryptjs** - Encriptación de contraseñas
-- **express-validator** - Validación de datos
+- [Descripción del Proyecto](#-descripción-del-proyecto)
 
-## 📋 Prerrequisitos
+- [Características](#-características)
 
-- Node.js (v16 o superior)
-- MySQL (v8.0 o superior)
-- MySQL Workbench (opcional, para gestión visual)
+- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
 
-## 🛠️ Instalación y Configuración
+- [Estructura del Proyecto](#-estructura-del-proyecto)
 
-### 1. Clonar el repositorio
-```bash
-git clone <tu-repositorio>
-cd PortalListadoProductos
-```
+- [Configuración del Entorno](#-configuración-del-entorno)
 
-### 2. Instalar dependencias
-```bash
-# Instalar todas las dependencias (root, server y client)
-npm run install:all
-```
+- [Instalación](#-instalación)
 
-### 3. Configurar la base de datos
+- [Uso](#-uso)
 
-#### Opción A: Usando MySQL Workbench
-1. Abrir MySQL Workbench
-2. Ejecutar el script `database/schema.sql`
-3. Crear la base de datos `portal_productos`
+- [API Endpoints](#-api-endpoints)
 
-#### Opción B: Usando línea de comandos
-```bash
-mysql -u root -p < database/schema.sql
-```
+- [Autenticación y Roles](#-autenticación-y-roles)
 
-### 4. Configurar variables de entorno
+- [Capturas de Pantalla](#-capturas-de-pantalla)
 
-#### Backend (server/env.example → server/.env)
-```env
-# Configuración del servidor
-PORT=5000
-NODE_ENV=development
+- [Mejoras Futuras](#-mejoras-futuras)
 
-# Configuración de la base de datos MySQL
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=portal_productos
-DB_USER=root
-DB_PASSWORD=tu_password_aqui
+- [Contribución](#-contribución)
 
-# JWT Secret
-JWT_SECRET=tu_jwt_secret_muy_seguro_aqui
-JWT_EXPIRE=7d
+  
 
-# URL del cliente
-CLIENT_URL=http://localhost:3000
-```
+## Descripción del Proyecto
 
-## 🚀 Comandos Disponibles
+  
 
-### Desarrollo
-```bash
-# Ejecutar frontend y backend simultáneamente
-npm run dev
+Portal de Listado de Productos es una aplicación web que permite gestionar un catálogo de productos con diferentes niveles de acceso según el rol del usuario. El sistema implementa autenticación JWT y control de acceso basado en roles para proporcionar una experiencia segura y personalizada.
 
-# Solo backend
-npm run server:dev
+  
 
-# Solo frontend
-npm run client:dev
-```
+### Funcionalidades Principales:
 
-### Producción
-```bash
-# Construir ambos proyectos
-npm run build
+-  **Visualización pública** de productos sin autenticación
 
-# Iniciar servidor de producción
-npm start
-```
+-  **Autenticación segura** con JWT (JSON Web Tokens)
 
-### Instalación
-```bash
-# Instalar todas las dependencias
-npm run install:all
-```
+-  **Control de acceso basado en roles** (Administrador y Colaborador)
 
-## 📡 API Endpoints
+-  **CRUD completo** de productos con validaciones
 
-### Autenticación
-- `POST /api/auth/register` - Registrar usuario
-- `POST /api/auth/login` - Iniciar sesión
-- `GET /api/auth/me` - Obtener usuario actual
+-  **Interfaz responsive** 
 
-### Productos
-- `GET /api/products` - Listar productos (con filtros)
-- `GET /api/products/:id` - Obtener producto por ID
-- `POST /api/products` - Crear producto (Admin)
-- `PUT /api/products/:id` - Actualizar producto (Admin)
-- `DELETE /api/products/:id` - Eliminar producto (Admin)
+-  **Gestión de sesiones** con tokens de acceso y refresh
 
-### Usuarios
-- `GET /api/users` - Listar usuarios (Admin)
-- `GET /api/users/:id` - Obtener usuario por ID
-- `PUT /api/users/:id` - Actualizar usuario
-- `DELETE /api/users/:id` - Eliminar usuario (Admin)
+  
 
-### Health Check
-- `GET /api/health` - Estado del servidor
+## Características
 
-## 🔐 Autenticación
+  
 
-El sistema utiliza JWT (JSON Web Tokens) para la autenticación:
+### Autenticación y Autorización
 
-1. **Registro/Login**: Obtén un token JWT
-2. **Requests autenticados**: Incluye el token en el header:
-   ```
-   Authorization: Bearer <tu_token>
-   ```
+-  **JWT Tokens**: Generación y validación de tokens de acceso y refresh
 
-## 🎯 Características Implementadas
+-  **Roles de Usuario**: Administrador y Colaborador con permisos diferenciados
+
+-  **Sesiones Seguras**: Manejo de sesiones con expiración automática
+
+-  **Middleware de Autenticación**: Protección de rutas sensibles
+
+  
+
+### Gestión de Productos
+
+-  **Listado Público**: Visualización de productos sin autenticación
+
+-  **Creación**: Formulario modal para agregar nuevos productos
+
+-  **Actualización**: Edición de productos existentes
+
+-  **Eliminación**: Borrado seguro con confirmación (solo administradores)
+
+-  **Validaciones**: Campos obligatorios y tipos de datos
+
+  
+
+### Interfaz de Usuario
+
+-  **Diseño Responsive**: Adaptable a diferentes dispositivos
+
+-  **Modales Interactivos**: Para login, creación y edición
+
+-  **Confirmaciones**: Diálogos de confirmación para acciones críticas
+
+-  **Estados de Carga**: Indicadores visuales durante operaciones
+
+-  **Manejo de Errores**: Mensajes informativos para el usuario
+
+  
+
+## Tecnologías Utilizadas
+
+  
 
 ### Frontend
-- ✅ Diseño responsivo y moderno
-- ✅ Componentes reutilizables
-- ✅ Navegación intuitiva
-- ✅ Estilos con gradientes y animaciones
+
+-  **React 18** - Biblioteca de interfaz de usuario
+
+-  **Vite** - Herramienta de construcción y desarrollo
+
+-  **React Router** - Enrutamiento del lado del cliente
+
+-  **Tailwind CSS** - Framework de CSS utilitario
+
+-  **Heroicons** - Iconografía
+
+-  **CSS Modules** - Estilos encapsulados por componente
+
+  
 
 ### Backend
-- ✅ API REST completa
-- ✅ Autenticación JWT
-- ✅ Validación de datos
-- ✅ Manejo de errores
-- ✅ Paginación
-- ✅ Filtros y búsqueda
-- ✅ Middleware de seguridad
+
+-  **Node.js** - Entorno de ejecución de JavaScript
+
+-  **Express.js** - Framework web para Node.js
+
+-  **MySQL** - Base de datos relacional
+
+-  **JWT** - Autenticación basada en tokens
+
+-  **Bcryptjs** - Encriptación de contraseñas
+
+-  **Yup** - Validación de esquemas
+
+  
 
 ### Base de Datos
-- ✅ Esquema normalizado
-- ✅ Relaciones entre tablas
-- ✅ Índices para rendimiento
-- ✅ Datos de ejemplo
 
-## 🔧 Configuración de Desarrollo
+-  **MySQL** - Sistema de gestión de base de datos
 
-### Puertos
-- **Frontend**: http://localhost:3000
-- **Backend**: http://localhost:5000
-- **API Health**: http://localhost:5000/api/health
+-  **mysql2/promise** - Cliente MySQL para Node.js
 
-### Estructura de Base de Datos
-- **users**: Usuarios del sistema
-- **categories**: Categorías de productos
-- **products**: Productos del catálogo
-- **reviews**: Reseñas de productos
+  
 
-## 📝 Próximos Pasos
 
-- [ ] Implementar subida de imágenes
-- [ ] Agregar sistema de reviews
-- [ ] Implementar carrito de compras
-- [ ] Agregar tests unitarios
-- [ ] Configurar CI/CD
-- [ ] Implementar caché con Redis
-- [ ] Agregar documentación con Swagger
+  
 
-## 🤝 Contribución
+## Configuración del Entorno
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+  
 
-## 📄 Licencia
+### Variables de Entorno
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
+  
 
-## 📞 Soporte
+Crea un archivo `.env` en la carpeta `server/` con las siguientes variables:
 
-Si tienes alguna pregunta o problema, por favor abre un issue en el repositorio.
+  
+
+```env
+
+# Base de Datos
+
+DB_HOST=localhost
+
+DB_USER=tu_usuario_mysql
+
+DB_PASSWORD=tu_contraseña_mysql
+
+DB_NAME=portal_productos
+
+  
+
+# JWT Secret (Genera uno seguro en https://jwtsecrets.com/#generator)
+
+JWT_SECRET=tu_jwt_secret_muy_seguro_aqui
+
+  
+
+# Servidor
+
+PORT=3001
+
+NODE_ENV=development
+
+  
+
+# CORS
+
+CLIENT_URL=http://localhost:5173
+
+AVOID_CORS=true
+
+```
+
+  
+
+### Generación de JWT Secret
+
+  
+
+Para generar un JWT secret seguro, visita: [https://jwtsecrets.com/#generator](https://jwtsecrets.com/#generator)
+
+  
+
+**Ejemplo de JWT Secret:**
+
+```
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+```
+
+  
+
+##  Instalación
+
+  
+
+### Prerrequisitos
+
+  
+
+-  **Node.js** (versión 16 o superior)
+
+-  **MySQL** (versión 8.0 o superior)
+
+-  **npm** o **yarn**
+
+  
+
+### Pasos de Instalación
+
+  
+
+1.  **Clona el repositorio:**
+
+```bash
+
+git  clone  https://github.com/tu-usuario/PortalListadoProductos.git
+
+cd  PortalListadoProductos
+
+```
+
+  
+
+2.  **Instala las dependencias del proyecto raíz:**
+
+```bash
+
+npm  install
+
+```
+
+  
+
+3.  **Instala las dependencias del frontend:**
+
+```bash
+
+cd  client
+
+npm  install
+
+cd  ..
+
+```
+
+  
+
+4.  **Instala las dependencias del backend:**
+
+```bash
+
+cd  server
+
+npm  install
+
+cd  ..
+
+```
+
+  
+
+5.  **Configura la base de datos:**
+
+```bash
+
+# Crea la base de datos en MySQL
+
+mysql  -u  root  -p
+
+CREATE  DATABASE  portal_productos;
+
+```
+
+  
+
+6.  **Ejecuta el esquema de la base de datos:**
+
+```bash
+
+mysql  -u  root  -p  portal_productos  <  database/schema.sql
+
+```
+
+  
+
+  
+
+8.  **Inicia la aplicación:**
+
+```bash
+
+# Desde la raíz del proyecto
+
+npm  run  dev
+
+```
+
+  
+
+Esto iniciará tanto el frontend (puerto 5173) como el backend (puerto 3001) simultáneamente.
+
+  
+
+##  Uso
+
+  
+
+### Acceso a la Aplicación
+
+  
+
+-  **Frontend**: http://localhost:5173
+
+-  **Backend API**: http://localhost:3001
+
+  
+
+### Usuarios de Prueba
+
+  
+
+La base de datos incluye usuarios de prueba:
+
+  
+
+**Administrador:**
+
+- Email: `admin@example.com`
+
+- Contraseña: `password`
+
+  
+
+**Colaborador:**
+
+- Email: `colaborador@example.com`
+
+- Contraseña: `password`
+
+  
+  
+
+> NOTA: Se dejó la creación de usuarios en base de datos directamente. En el portal solamente se puede iniciar sesión. Esto por definición de quién podría crear un usuario admin.
+
+### Funcionalidades por Rol
+
+  
+
+#### Usuario No Autenticado
+
+- Visualizar lista de productos públicos
+  
+
+####  Colaborador
+
+- Todas las funcionalidades de usuario no autenticado
+
+- Crear nuevos productos
+
+- Actualizar productos existentes
+
+  
+
+#### Administrador
+
+- Todas las funcionalidades de colaborador
+
+- Eliminar productos
+
+- Gestión completa del sistema
+
+  
+
+## API Endpoints
+
+
+### Autenticación
+
+```
+
+POST /api/session/login # Iniciar sesión
+
+POST /api/session/logout # Cerrar sesión
+
+GET /api/session/accessToken # Obtener token de acceso
+
+```
+
+  
+
+### Productos
+
+```
+
+GET /api/products/public # Listar productos públicos
+
+GET /api/products # Listar productos (autenticado)
+
+POST /api/products # Crear producto (colaborador+)
+
+PUT /api/products/:id # Actualizar producto (colaborador+)
+
+DELETE /api/products/:id # Eliminar producto (admin)
+
+```
+
+  
+
+### Usuarios
+
+```
+
+POST /api/users # Crear usuario (admin)
+
+GET /api/users/:id # Obtener usuario (autenticado)
+
+GET /api/users/me # Obtener usuario actual
+
+```
+
+  
+
+##  Autenticación y Roles
+
+  
+
+### Sistema de Tokens JWT
+
+  
+
+El sistema utiliza **JSON Web Tokens (JWT)** para la autenticación:
+
+  
+
+-  **Access Token**: Token de corta duración para autenticación
+
+-  **Refresh Token**: Token de larga duración para renovar access tokens
+
+-  **Expiración**: Los tokens tienen tiempo de vida limitado por seguridad
+
+ 
+  
+
+### Middleware de Autenticación
+
+  
+
+-  **`ensureRefreshTokenAuth`**: Valida tokens de refresh
+
+-  **`ensureAdminAuth`**: Solo administradores
+
+-  **`ensureCollaboratorAuth`**: Colaboradores y administradores
+
+  
+
+## 📸 Capturas de Pantalla
+
+  
+
+| ![Vista Pública](https://github.com/user-attachments/assets/d7c17c1b-437d-4fd9-9970-11f750531f57) | ![Login Modal](https://github.com/user-attachments/assets/98536167-f40f-4e76-a122-7eab890da733) |
+
+|------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+
+| Vista pública de productos sin autenticación | Modal de inicio de sesión |
+
+| ![Dashboard Colaborador](https://github.com/user-attachments/assets/35467677-3345-45a3-a8f8-67a11f3bcd0c) | ![Crear Producto](https://github.com/user-attachments/assets/a5edad71-a175-4a6f-abc4-2b8c3e736afd) |
+
+| Dashboard de colaborador con botones de acción | Modal para crear nuevo producto |
+
+| ![Actualizar Producto](https://github.com/user-attachments/assets/af5a5725-62b8-4201-9996-c9e0d3803e82) | ![Confirmar Eliminación](https://github.com/user-attachments/assets/fdefe415-59a4-4e3a-902c-cab2ac5ff15f) |
+
+| Modal para actualizar producto existente | Modal de confirmación para eliminar producto |
+
+| ![Dashboard Administrador](https://github.com/user-attachments/assets/a18b1d97-e334-4599-b1e5-a699dab3b220) | ![Gestión Completa](https://github.com/user-attachments/assets/736152d4-b8a0-47c2-93ad-5b267f937dc2) |
+
+
+## Mejoras Futuras
+
+  
+
+### Funcionalidades Planificadas
+
+  
+
+-  **Gestión de Imágenes**: Implementación de AWS S3 o similar para almacenamiento de imágenes
+
+-  **Búsqueda Avanzada**: Filtros por categoría, precio, disponibilidad
+
+-  ** Internacionalización**: Soporte para múltiples idiomas
+
+-  **Paginación**: Manejo eficiente de grandes cantidades de productos
+
+-  **Cache**: Implementación de Redis para mejorar rendimiento
+
+
+  
+
+## Autor
+
+  
+- Email: sicayb@gmail.com
+
+  
+

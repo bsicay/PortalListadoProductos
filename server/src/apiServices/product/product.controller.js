@@ -123,8 +123,6 @@ const updateProductController = async (req, res) => {
       });
     }
 
-    console.log(idProduct);
-    console.log(id);
 
     const product = await updateProduct({
       idProduct,
@@ -170,15 +168,15 @@ const updateProductController = async (req, res) => {
 
 const deleteProductController = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { idProduct } = req.params;
 
-    if (!id) {
+    if (!idProduct) {
       return res.status(400).json({ 
         message: 'ID de producto requerido' 
       });
     }
 
-    await deleteProduct({ id });
+    await deleteProduct({ idProduct });
 
     res.status(200).json({ 
       message: 'Producto eliminado exitosamente' 

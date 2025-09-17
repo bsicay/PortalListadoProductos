@@ -28,6 +28,6 @@ productRouter.post('/', ensureCollaboratorAuth, validateBody(createProductSchema
 productRouter.put('/:idProduct', ensureCollaboratorAuth, validateBody(updateProductSchema), updateProductController);
 
 // Ruta solo para administradores (eliminar)
-productRouter.delete('/:id', ensureAdminAuth, deleteProductController);
+productRouter.delete('/:idProduct', ensureAdminAuth, deleteProductController);
 
 export default productRouter;

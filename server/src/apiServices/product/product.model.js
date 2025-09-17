@@ -105,7 +105,7 @@ const getPublicProducts = async () => {
       ORDER BY p.created_at DESC
     `);
     
-    return multiple(result, { showSensitiveData: false, showCreatorInfo: false });
+    return multiple(result, { showSensitiveData: true, showCreatorInfo: false });
   } catch (error) {
     console.error('Error obteniendo productos públicos:', error);
     throw new Error('Error al obtener la lista de productos públicos');

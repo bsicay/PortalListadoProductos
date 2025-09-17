@@ -21,3 +21,4 @@ const single = (resource) => {
 };
 
 export { single };
+

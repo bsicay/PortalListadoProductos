@@ -40,6 +40,34 @@ const createUserController = async (req, res) => {
 
 
 
+const getMeController = async (req, res) => {
+  try {
+    const userId = req.session?.id;
+    
+    if (!userId) {
+      return res.status(401).json({ 
+        message: 'Usuario no autenticado' 
+      });
+    }
+
+    const user = await getUser({ idUser: userId, showSensitiveData: true });
+    
+    if (!user) {
+      return res.status(404).json({ 
+        message: 'Usuario no encontrado' 
+      });
+    }
+
+    res.status(200).json(single(user, { showSensitiveData: true }));
+  } catch (ex) {
+    console.error('Error obteniendo datos del usuario actual:', ex);
+    
+    res.status(500).json({ 
+      message: 'Error interno del servidor' 
+    });
+  }
+};
+
 const getUserController = async (req, res) => {
   try {
     const { idUser } = req.params;
@@ -82,5 +110,6 @@ const getUserController = async (req, res) => {
 
 export {
   createUserController,
+  getMeController,
   getUserController,
 };

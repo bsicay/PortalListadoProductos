@@ -24,7 +24,7 @@ const single = (
     description,
     price,
     sku,
-    inventory: showSensitiveData ? inventory : undefined,
+    inventory,
     image,
     created_by: showSensitiveData || showCreatorInfo ? created_by : undefined,
     updated_by: showSensitiveData || showCreatorInfo ? updated_by : undefined,

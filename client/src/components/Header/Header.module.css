@@ -1,0 +1,243 @@
+.header {
+  background-color: #1e3a8a; /* Dark blue similar to the image */
+  color: white;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 64px;
+}
+
+/* Logo Section */
+.logoSection {
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoImage {
+  height: 40px;
+  width: auto;
+}
+
+.logoPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #10b981; /* Bright green like in the image */
+  border-radius: 8px;
+}
+
+.logoIcon {
+  font-size: 24px;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navLink.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.chevronIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Search Section */
+.searchSection {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 2rem;
+}
+
+.searchForm {
+  width: 100%;
+}
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 3rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: white;
+  color: #1f2937;
+  font-size: 0.875rem;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.searchButton {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: color 0.2s ease;
+}
+
+.searchButton:hover {
+  color: #374151;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* User Actions */
+.userActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userAction {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.userAction:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.userIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.userText {
+  font-weight: 500;
+}
+
+.cartAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.cartAction:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cartIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+    height: 56px;
+  }
+  
+  .searchSection {
+    margin: 0 1rem;
+    max-width: 200px;
+  }
+  
+  .userText {
+    display: none;
+  }
+  
+  .navLink {
+    padding: 0.5rem;
+  }
+  
+  .navLink span {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .searchSection {
+    display: none;
+  }
+  
+  .navigation {
+    display: none;
+  }
+}

@@ -1,0 +1,295 @@
+.footer {
+  background-color: #f8f8f8; /* Light grey background for the main footer */
+  color: #333; /* Dark text color */
+  font-family: 'Inter', sans-serif; /* Assuming Inter font from tailwind config */
+}
+
+.mainFooterContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 columns for all sections in one row */
+  gap: 1rem;
+  border-bottom: 1px solid #e0e0e0; /* Separator line */
+}
+
+@media (max-width: 1200px) {
+  .mainFooterContent {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainFooterContent {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainFooterContent {
+    grid-template-columns: 1fr; /* Stack columns on very small screens */
+    padding: 1rem 1rem;
+  }
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 700; /* Bold */
+  color: #1f2937; /* Darker text for titles */
+  margin-bottom: 0.5rem;
+}
+
+.sectionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sectionLink {
+  color: #4b5563; /* Slightly lighter dark text for links */
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.sectionLink:hover {
+  color: #1e3a8a; /* Dark blue on hover */
+}
+
+
+/* Company Section - Contains both Empresa B and Suscríbete */
+.companySection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between Empresa B and Suscríbete */
+}
+
+.companyBSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.companyBBadge {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  gap: 1rem;
+  background-color: #fff; /* White background for the badge area */
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.bLogoContainer {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #10b981; /* Green border */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.bLogo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #10b981; /* Green 'B' */
+  line-height: 1;
+}
+
+.bTextContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.bDescription {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.learnMoreLink {
+  color: #1e3a8a; /* Dark blue link */
+  text-decoration: underline;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.learnMoreLink:hover {
+  color: #3b82f6; /* Lighter blue on hover */
+}
+
+.subscribeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.subscribeText {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0;
+}
+
+.subscribeForm {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.subscribeInput {
+  flex: 1;
+  min-width: 180px; /* Ensure input is not too small */
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #374151;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subscribeInput:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.subscribeButton {
+  background-color: #1e3a8a; /* Dark blue button */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.subscribeButton:hover {
+  background-color: #1c327a; /* Slightly darker blue on hover */
+}
+
+/* Certified Opinions Section */
+.certifiedOpinionsSection {
+  display: flex;
+  justify-content: center; /* Center the badge */
+  align-items: flex-start; /* Align to top */
+  padding-top: 1rem; /* Add some top padding to align with other sections */
+}
+
+.certifiedOpinionsBadge {
+  background-color: #fff;
+  border: 1px dotted #d1d5db; /* Dotted border */
+  border-radius: 50%; /* Circular shape */
+  width: 180px; /* Fixed size for the badge */
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.opinionsCount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1;
+}
+
+.starRating {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0.25rem 0;
+}
+
+.starIcon {
+  width: 18px;
+  height: 18px;
+  color: #fbbf24; /* Yellow stars */
+  fill: #fbbf24; /* Fill for solid stars */
+}
+
+.opinionsText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* Top Contact Bar - Dark Blue Background */
+.topContactBar {
+  background-color: #1e3a8a; /* Dark blue similar to the header */
+  color: white;
+  padding: 1rem 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  font-size: 0.875rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contactIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.contactText,
+.contactLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+  color: #93c5fd; /* Lighter blue on hover */
+}
+
+/* General reset for lists */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

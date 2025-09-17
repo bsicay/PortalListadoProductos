@@ -1,0 +1,29 @@
+{
+  "name": "portal-listado-productos-fullstack",
+  "version": "1.0.0",
+  "description": "Portal de listado de productos con React frontend y Node.js backend",
+  "main": "server/src/app.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "server:build": "cd server && npm run build",
+    "client:build": "cd client && npm run build",
+    "server:start": "cd server && npm start",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "npm run client:build && npm run server:build",
+    "start": "npm run server:start"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "express",
+    "mysql",
+    "fullstack"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -7,14 +7,10 @@ import { Buffer } from 'buffer';
  * @throws {Token Invalido} De no estar en un formato adecuado o no ser un string.
  *
  * @property {Object} payload: Carga del token
- * -- @property {string} id: ID Hashed del becado en la base de datos.
- * -- @property {number} code: Código del becado.
- * -- @property {string} name: Nombre(s) del becado.
- * -- @property {string} lastname: Apellido(s) del becado.
- * -- @property {number} promotion: Año de promoción del becado.
- * -- @property {string} career: Carrera en la que el becado está inscrito.
- * -- @property {string} sex: Sexo del becado, esta se encuentra en "M" para masculino y "F" para
- * -- femenino respectivamente.
+ * -- @property {string} id: ID Hashed 
+ * -- @property {number} code: Código del usuario.
+ * -- @property {string} name: Nombre(s) del usuario.
+ * -- @property {string} lastname: Apellido(s) del usuario.
  * -- @property {string} type: Tipo de acceso que posee el usuario al que pertenece el token dado.
  * -- @property {string[]} role: Arreglo que contiene los roles y eventualmente "permisos" que posee
  * -- el usuario al que pertenece el token dado.

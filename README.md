@@ -482,25 +482,20 @@ El sistema utiliza **JSON Web Tokens (JWT)** para la autenticación:
 
   
 
-## 📸 Capturas de Pantalla
+## Capturas de Pantalla
 
-  
+| Listado público de productos | Login | Portal de admin |
+|------------------------------|-------|-----------------|
+| <img width="400" alt="Listado público de productos" src="https://github.com/user-attachments/assets/c3fedf8f-c5a7-459a-8763-8216719c2164" /> | <img width="400" alt="Login" src="https://github.com/user-attachments/assets/ca125ada-df8e-4b9b-9137-a68f94bef35b" /> | <img width="400" alt="Portal de admin" src="https://github.com/user-attachments/assets/298f6787-7646-4f04-8775-f149bb7e3249" /> |
 
-| ![Vista Pública](https://github.com/user-attachments/assets/d7c17c1b-437d-4fd9-9970-11f750531f57) | ![Login Modal](https://github.com/user-attachments/assets/98536167-f40f-4e76-a122-7eab890da733) |
+| Actualizar un producto | Eliminar un producto | Vista de colaborador |
+|------------------------|----------------------|----------------------|
+| <img width="400" alt="Actualizar un producto" src="https://github.com/user-attachments/assets/f4e01875-bc79-4432-8e30-8099a970298e" /> | <img width="400" alt="Eliminar un producto" src="https://github.com/user-attachments/assets/1320eebe-dacc-4dbc-84ed-c3b2ecb70371" /> | <img width="400" alt="Vista de colaborador" src="https://github.com/user-attachments/assets/fce978a1-f9c4-4a20-b2a2-adbf161966c3" /> |
 
-|------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Crear un producto | |  |
+|------------------------|----------------------|----------------------|
+| <img width="400" alt="Crear un producto" src="https://github.com/user-attachments/assets/db84a171-c228-45af-a00a-3129139c5e99" /> |  |
 
-| Vista pública de productos sin autenticación | Modal de inicio de sesión |
-
-| ![Dashboard Colaborador](https://github.com/user-attachments/assets/35467677-3345-45a3-a8f8-67a11f3bcd0c) | ![Crear Producto](https://github.com/user-attachments/assets/a5edad71-a175-4a6f-abc4-2b8c3e736afd) |
-
-| Dashboard de colaborador con botones de acción | Modal para crear nuevo producto |
-
-| ![Actualizar Producto](https://github.com/user-attachments/assets/af5a5725-62b8-4201-9996-c9e0d3803e82) | ![Confirmar Eliminación](https://github.com/user-attachments/assets/fdefe415-59a4-4e3a-902c-cab2ac5ff15f) |
-
-| Modal para actualizar producto existente | Modal de confirmación para eliminar producto |
-
-| ![Dashboard Administrador](https://github.com/user-attachments/assets/a18b1d97-e334-4599-b1e5-a699dab3b220) | ![Gestión Completa](https://github.com/user-attachments/assets/736152d4-b8a0-47c2-93ad-5b267f937dc2) |
 
 
 ## Mejoras Futuras
